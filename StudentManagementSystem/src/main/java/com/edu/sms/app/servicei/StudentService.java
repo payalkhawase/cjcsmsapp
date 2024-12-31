@@ -10,4 +10,6 @@ public interface StudentService {
 
 	public void saveStudent(Student s);
 
+	public List<Student> searchStudentsByBatch(String batchNumber);
+
 }

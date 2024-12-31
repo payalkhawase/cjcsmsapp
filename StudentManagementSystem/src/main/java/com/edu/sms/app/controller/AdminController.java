@@ -14,8 +14,10 @@ import com.edu.sms.app.servicei.StudentService;
 
 @Controller
 public class AdminController {
+	
 @Autowired
 StudentService ssi;
+
 	@RequestMapping("/")
 	public String prelLogin() {
 		
@@ -37,6 +39,20 @@ StudentService ssi;
 	public String saveStudent(@ModelAttribute Student s,Model m) {
 		ssi.saveStudent(s);
 		
+		return "adminscreen";
+	}
+
+	@RequestMapping("/search")
+    public String getBatchStudent(@RequestParam("batchNumber") String batchNumber,Model m) {
+		List<Student> result=ssi.searchStudentsByBatch(batchNumber);
+		if(result.size()>0) {
+			m.addAttribute("data", result);
+		}else {
+			
+			List<Student> Students=ssi.getAllStudents();
+			m.addAttribute("data", Students);
+			m.addAttribute("msg", "No records available fot the batch"+batchNumber+"'.....!");
+		}
 		return "adminscreen";
 	}
 }

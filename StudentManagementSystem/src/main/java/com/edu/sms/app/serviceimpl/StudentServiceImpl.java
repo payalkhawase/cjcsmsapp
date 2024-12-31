@@ -25,5 +25,12 @@ public class StudentServiceImpl implements StudentService{
 		sr.save(s);
 		
 	}
+	@Override
+	public List<Student> searchStudentsByBatch(String batchNumber) {
+		
+		List<Student> batchStudents=sr.findAllByBatchNumber(batchNumber);
+		
+		return batchStudents;
+	}
 
 }
