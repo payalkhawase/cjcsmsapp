@@ -18,4 +18,8 @@ public interface StudentService {
 
 	public void removeStudent(int id);
 
+	public List<Student> paging(int pageNo, int i);
+
+	public List<Student> updateStudentBatch(int id, String batchMode);
+
 }

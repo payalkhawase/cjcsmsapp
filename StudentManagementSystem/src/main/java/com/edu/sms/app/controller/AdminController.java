@@ -70,12 +70,36 @@ StudentService ssi;
 		return "adminscreen";
 	}
 	
+	@RequestMapping("/batch")
+	public String onBatch(@RequestParam("id") int id,Model m) {
+		Student s=ssi.getStudent(id);
+		m.addAttribute("st", s);
+		return "batch";
+	}
+	
+	@RequestMapping("/shiftbatch")
+	public String ShiftBatch(@RequestParam("studentid") int id,@RequestParam("batchNumber") String batchNumber,Model m) {
+	
+		List<Student> l= ssi.updateStudentBatch(id,batchNumber);
+		m.addAttribute("data", l);
+		return "adminscreen";
+	}
+	
 	@RequestMapping("/remove")
 	public String removeDelete(@RequestParam("id") int id,Model m) {
 		
 		       ssi.removeStudent(id);
 		
 		List<Student> list=ssi.getAllStudents();
+		m.addAttribute("data",list);
+		return "adminscreen";
+	}
+	
+	@RequestMapping("/paging")
+	public String paging(@RequestParam("pageNo") int pageNo,Model m) {
+		
+
+		List<Student> list=ssi.paging(pageNo,2);
 		m.addAttribute("data",list);
 		return "adminscreen";
 	}
