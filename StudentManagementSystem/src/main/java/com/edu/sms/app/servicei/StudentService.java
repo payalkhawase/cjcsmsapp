@@ -12,4 +12,10 @@ public interface StudentService {
 
 	public List<Student> searchStudentsByBatch(String batchNumber);
 
+	public Student getStudent(int id);
+
+	public List<Student> updateStudentFees(int id, float amt);
+
+	public void removeStudent(int id);
+
 }

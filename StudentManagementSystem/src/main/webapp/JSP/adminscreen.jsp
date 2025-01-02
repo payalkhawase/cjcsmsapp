@@ -29,6 +29,18 @@ background-size: cover;
 background-repeat: no-repeat;
 }
 </style>
+<script type="text/javascript">
+function fees()
+{
+document.fn.action="/fees"
+document.action.submit();
+}
+function remove()
+{
+document.fn.action="/remove"
+document.action.submit();
+}
+</script>
 </head>
 <body>
 <div class="card">
@@ -136,9 +148,6 @@ background-repeat: no-repeat;
 </div>
 </div>
 </section>
-<section class="view" style="height:530px" id="view">
-<h1>View Student</h1>
-</section>
 </div>
 <section class="view" style="height:530px" id="view">
 <h1 class="text-center">Student Details..!</h1>
@@ -172,6 +181,7 @@ ${message }
 <th>Bath No</th>
 <th>Mode</th>
 <th>Fess Recived</th>
+<th>Select</th>
 <th>Actions</th>
 </tr>
 </thead>
@@ -188,12 +198,15 @@ ${message }
 <td>${s.batchMode}</td>
 <td>${s.feesPaid}</td>
 <td>
-<div class="btn-group btn-group-sm" role="group" aria-label="...">
-<button class="btn btn-outline-success">Pay-Fees</button>
-<button class="btn btn-outline-primary">Shift-Batch</button>
-<button class="btn btn-outline-danger">Remove</button>
-</div>
-</td>
+ <input type="radio" name="id" value="${s.studentId}">
+ </td>
+<td>
+ <div class="btn-group btn-group-sm" role="group" aria-label="...">
+ <button class="btn btn-outline-success" onclick="fees()">Pay-Fees</button>
+ <button class="btn btn-outline-primary" onclick="batch()">Shift-Batch</button>
+ <button class="btn btn-outline-danger" onclick="remove()">Remove</button>
+ </div>
+ </td>
 </tr>
 </c:forEach>
 </tbody>
