@@ -16,7 +16,7 @@
 		<div class="w-50 align-middle border border-info border-3 mt-2"
 			style="height: 500px">
 			<h6 class="p-3 text-primary ">
-				<u>Instalment Details :-</u>
+				<u>BatchShifting Details :-</u>
 			</h6>
 			<div class="border border-secondary m-3 p-2">
 				<table class="table table-hover border border-secondary ">
@@ -37,7 +37,10 @@
 							<th>Batch Number</th>
 							<td>${st.batchNumber}</td>
 						</tr>
-						
+						<tr class="table-primary fs-6">
+							<th>Batch Mode</th>
+							<td>${st.batchMode}</td>
+						</tr>
 						<tr class="table-danger fs-6">
 							<th>Fees Paid</th>
 							<td>${st.feesPaid}</td>
@@ -48,6 +51,11 @@
 				<form action="shiftbatch">
 					<input type="text" name="studentid" value="${st.studentId}"
 						hidden="true">
+						<select class="select form-control-sm" name="batchMode">
+                        <option value="#" disabled >Select Batch Mode</option>
+                        <option value="Online">Online</option>
+                        <option value="Offline">Offline</option>
+                        </select>
 					<select class="select form-control-sm border border-primary"
                              name="batchNumber">
                         <option value="#" slected>Select Batch Number</option>

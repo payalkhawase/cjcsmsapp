@@ -184,11 +184,11 @@ ${message }
  <th>Student Name</th>
  <th>Student Email</th>
  <th>Age</th>
- <th>Collage Name</th>
+ <th>College Name</th>
  <th>Course Name</th>
- <th>Bath No</th>
+ <th>Batch No</th>
  <th>Mode</th>
- <th>Fess Recived</th>
+ <th>Fees Received</th>
  <th>Select</th>
  <th>Actions</th>
  </tr>

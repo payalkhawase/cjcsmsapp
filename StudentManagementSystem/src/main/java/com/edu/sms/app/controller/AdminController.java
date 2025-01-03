@@ -78,9 +78,9 @@ StudentService ssi;
 	}
 	
 	@RequestMapping("/shiftbatch")
-	public String ShiftBatch(@RequestParam("studentid") int id,@RequestParam("batchNumber") String batchNumber,Model m) {
+	public String ShiftBatch(@RequestParam("studentid") int id,@RequestParam("batchNumber") String batchNumber,@RequestParam("batchMode") String batchMode,Model m) {
 	
-		List<Student> l= ssi.updateStudentBatch(id,batchNumber);
+		List<Student> l= ssi.updateStudentBatch(id,batchNumber,batchMode);
 		m.addAttribute("data", l);
 		return "adminscreen";
 	}

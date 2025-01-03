@@ -20,6 +20,6 @@ public interface StudentService {
 
 	public List<Student> paging(int pageNo, int i);
 
-	public List<Student> updateStudentBatch(int id, String batchMode);
+	public List<Student> updateStudentBatch(int id, String batchNumber, String batchMode);
 
 }
